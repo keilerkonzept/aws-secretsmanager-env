@@ -1,5 +1,7 @@
 # aws-secretsmanager-env
 
+Injects AWS Secrets Manager secrets as environment variables - or just prints them, if no command is given.
+
 <!-- TOC -->
 
 - [Get it](#get-it)
@@ -21,12 +23,10 @@ Or [download the binary](https://github.com/sgreben/aws-secretsmanager-env/relea
 
 ```bash
 # Linux
-curl -LO https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.0/aws-secretsmanager-env_1.0.0_linux_x86_64.zip
-unzip aws-secretsmanager-env_1.0.0_linux_x86_64.zip
+curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.0/aws-secretsmanager-env_1.0.0_linux_x86_64.tar.gz | tar xz
 
 # OS X
-curl -LO https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.0/aws-secretsmanager-env_1.0.0_osx_x86_64.zip
-unzip aws-secretsmanager-env_1.0.0_osx_x86_64.zip
+curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.0/aws-secretsmanager-env_1.0.0_osx_x86_64.tar.gz | tar xz
 
 # Windows
 curl -LO https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.0/aws-secretsmanager-env_1.0.0_windows_x86_64.zip
