@@ -1,5 +1,7 @@
 # ${APP}
 
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/sgreben/aws-secretsmanager-env.svg)](https://hub.docker.com/r/sgreben/aws-secretsmanager-env/tags)
+
 Injects AWS Secrets Manager secrets as environment variables - or just prints them, if no command is given.
 
 <!-- TOC -->
