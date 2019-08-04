@@ -25,14 +25,14 @@ Or [download the binary](https://github.com/sgreben/aws-secretsmanager-env/relea
 
 ```bash
 # Linux
-curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.4/aws-secretsmanager-env_1.0.4_linux_x86_64.tar.gz | tar xz
+curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.1.0/aws-secretsmanager-env_1.1.0_linux_x86_64.tar.gz | tar xz
 
 # OS X
-curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.4/aws-secretsmanager-env_1.0.4_osx_x86_64.tar.gz | tar xz
+curl -L https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.1.0/aws-secretsmanager-env_1.1.0_osx_x86_64.tar.gz | tar xz
 
 # Windows
-curl -LO https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.0.4/aws-secretsmanager-env_1.0.4_windows_x86_64.zip
-unzip aws-secretsmanager-env_1.0.4_windows_x86_64.zip
+curl -LO https://github.com/sgreben/aws-secretsmanager-env/releases/download/1.1.0/aws-secretsmanager-env_1.1.0_windows_x86_64.zip
+unzip aws-secretsmanager-env_1.1.0_windows_x86_64.zip
 ```
 
 ## Use it
@@ -42,6 +42,8 @@ unzip aws-secretsmanager-env_1.0.4_windows_x86_64.zip
 aws-secretsmanager-env [OPTIONS] [COMMAND [ARGS...]]
 
 Usage of aws-secretsmanager-env:
+  -profile string
+    	override the current AWS_PROFILE setting
   -secret-binary-base64 ENV_VAR=SECRET_ARN
     	a key/value pair ENV_VAR=SECRET_ARN (may be specified repeatedly)
   -secret-binary-string ENV_VAR=SECRET_ARN

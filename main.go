@@ -21,6 +21,7 @@ var config struct {
 	SecretJSONKeyStrings map[string]secretJSONKey
 	SecretJSONKeys       map[string]secretJSONKey
 	PrintEnvAndExit      bool
+	Profile              string
 }
 
 type secretJSONKey struct {
@@ -39,6 +40,7 @@ func init() {
 	flag.Var(&config.SecretBinaryStringsAssignments, "secret-binary-string", "a key/value pair `ENV_VAR=SECRET_ARN` (may be specified repeatedly)")
 	flag.Var(&config.SecretJSONKeyStringAssignments, "secret-json-key-string", "a key/value pair `ENV_VAR=SECRET_ARN#JSON_KEY` (may be specified repeatedly)")
 	flag.Var(&config.SecretJSONKeyAssignments, "secret-json-key", "a key/value pair `ENV_VAR=SECRET_ARN#JSON_KEY` (may be specified repeatedly)")
+	flag.StringVar(&config.Profile, "profile", "", "override the current AWS_PROFILE setting")
 	flag.Parse()
 
 	config.PrintEnvAndExit = flag.NArg() > 0
