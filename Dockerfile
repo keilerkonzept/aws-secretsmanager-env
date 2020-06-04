@@ -5,7 +5,7 @@ COPY . .
 ENV CGO_ENABLED=0
 RUN make binaries/linux_x86_64/aws-secretsmanager-env && mv binaries/linux_x86_64/aws-secretsmanager-env /app
 
-FROM alpine:3.10
+FROM alpine:3.12
 RUN apk add --no-cache ca-certificates
 COPY --from=build /app /bin/aws-secretsmanager-env
 CMD [ "aws-secretsmanager-env" ]
