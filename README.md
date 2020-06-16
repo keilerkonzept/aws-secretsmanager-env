@@ -1,6 +1,6 @@
 # aws-secretsmanager-env
 
-![Build](https://github.com/keilerkonzept/aws-secretsmanager-env/workflows/Build/badge.svg) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/sgreben/aws-secretsmanager-env.svg)](https://hub.docker.com/r/sgreben/aws-secretsmanager-env/tags)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/sgreben/aws-secretsmanager-env.svg)](https://hub.docker.com/r/sgreben/aws-secretsmanager-env/tags)
 
 Injects AWS Secrets Manager secrets as environment variables - or just prints them, if no command is given. (If you need secrets as **files** instead, you can use [aws-secretsmanager-files](https://github.com/keilerkonzept/aws-secretsmanager-files))
 
@@ -25,14 +25,14 @@ Or [download the binary](https://github.com/keilerkonzept/aws-secretsmanager-env
 
 ```bash
 # Linux
-curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.10/aws-secretsmanager-env_1.1.10_linux_x86_64.tar.gz | tar xz
+curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.11/aws-secretsmanager-env_1.1.11_linux_x86_64.tar.gz | tar xz
 
 # OS X
-curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.10/aws-secretsmanager-env_1.1.10_osx_x86_64.tar.gz | tar xz
+curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.11/aws-secretsmanager-env_1.1.11_osx_x86_64.tar.gz | tar xz
 
 # Windows
-curl -LO https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.10/aws-secretsmanager-env_1.1.10_windows_x86_64.zip
-unzip aws-secretsmanager-env_1.1.10_windows_x86_64.zip
+curl -LO https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.11/aws-secretsmanager-env_1.1.11_windows_x86_64.zip
+unzip aws-secretsmanager-env_1.1.11_windows_x86_64.zip
 ```
 
 ## Use it
