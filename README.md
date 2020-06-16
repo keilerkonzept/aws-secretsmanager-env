@@ -1,6 +1,6 @@
 # aws-secretsmanager-env
 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/sgreben/aws-secretsmanager-env.svg)](https://hub.docker.com/r/sgreben/aws-secretsmanager-env/tags)
+![Build](https://github.com/keilerkonzept/aws-secretsmanager-env/workflows/Build/badge.svg) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/sgreben/aws-secretsmanager-env.svg)](https://hub.docker.com/r/sgreben/aws-secretsmanager-env/tags)
 
 Injects AWS Secrets Manager secrets as environment variables - or just prints them, if no command is given. (If you need secrets as **files** instead, you can use [aws-secretsmanager-files](https://github.com/keilerkonzept/aws-secretsmanager-files))
 
