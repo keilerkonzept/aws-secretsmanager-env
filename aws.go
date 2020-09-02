@@ -6,31 +6,12 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/credentials/ec2rolecreds"
-	"github.com/aws/aws-sdk-go/aws/ec2metadata"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/secretsmanager"
 )
 
 func awsSession() (*session.Session, error) {
-	ec2MetadataConfig := aws.NewConfig()
-	ec2MetadataSession, err := session.NewSession(ec2MetadataConfig)
-	if err != nil {
-		return nil, err
-	}
-
-	ec2Metadata := ec2metadata.New(ec2MetadataSession)
-	creds := credentials.NewChainCredentials(
-		[]credentials.Provider{
-			&credentials.EnvProvider{},
-			&credentials.SharedCredentialsProvider{
-				Profile: config.Profile,
-			},
-			&ec2rolecreds.EC2RoleProvider{Client: ec2Metadata},
-		},
-	)
-	return session.NewSession(aws.NewConfig().WithCredentials(creds))
+	return session.NewSession()
 }
 
 func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
