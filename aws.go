@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
@@ -30,7 +31,7 @@ func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
 		if result.SecretString != nil {
 			value = *result.SecretString
 		}
-		env = append(env, fmt.Sprintf("%s=%s", key, value))
+		env = append(env, fmt.Sprintf("%s=%s", key, JSONMarshal(value)))
 	}
 
 	for envVarName, secretID := range config.SecretBinariesAssignments.Values {
@@ -83,7 +84,7 @@ func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
 			}
 			value = fmt.Sprint(jsonObject[secret.JSONKey])
 		}
-		env = append(env, fmt.Sprintf("%s=%s", key, value))
+		env = append(env, fmt.Sprintf("%s=%s", key, JSONMarshal(value)))
 	}
 
 	for envVarName, secret := range config.SecretJSONKeys {
@@ -110,7 +111,7 @@ func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
 			}
 			value = fmt.Sprint(jsonObject[secret.JSONKey])
 		}
-		env = append(env, fmt.Sprintf("%s=%s", key, value))
+		env = append(env, fmt.Sprintf("%s=%s", key, JSONMarshal(value)))
 	}
 	if len(errors) == 1 {
 		return env, errors[0]
@@ -119,4 +120,17 @@ func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
 		return env, fmt.Errorf("%d error(s): [%q, ...]", len(errors), errors[0])
 	}
 	return env, nil
+}
+
+// JSONMarshal encodes to JSON - https://stackoverflow.com/questions/28595664/how-to-stop-json-marshal-from-escaping-and
+func JSONMarshal(t interface{}) string {
+	buffer := &bytes.Buffer{}
+	encoder := json.NewEncoder(buffer)
+	encoder.SetEscapeHTML(false)
+
+	if err := encoder.Encode(t); err != nil {
+		fmt.Println(err)
+	}
+
+	return buffer.String()
 }
