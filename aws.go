@@ -102,15 +102,13 @@ func awsSecretsEnv(s *secretsmanager.SecretsManager) ([]string, error) {
 				errors = append(errors, err)
 				continue
 			}
-			valueBytes, _ := json.Marshal(jsonObject[secret.JSONKey])
-			value = string(valueBytes)
+			value = fmt.Sprint(jsonObject[secret.JSONKey])
 		case result.SecretString != nil:
 			if err := json.Unmarshal(result.SecretBinary, &jsonObject); err != nil {
 				errors = append(errors, err)
 				continue
 			}
-			valueBytes, _ := json.Marshal(jsonObject[secret.JSONKey])
-			value = string(valueBytes)
+			value = fmt.Sprint(jsonObject[secret.JSONKey])
 		}
 		env = append(env, fmt.Sprintf("%s=%s", key, value))
 	}
