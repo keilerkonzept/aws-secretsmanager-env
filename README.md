@@ -25,14 +25,14 @@ Or [download the binary](https://github.com/keilerkonzept/aws-secretsmanager-env
 
 ```bash
 # Linux
-curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.94/aws-secretsmanager-env_1.1.94_linux_x86_64.tar.gz | tar xz
+curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.95/aws-secretsmanager-env_1.1.95_linux_x86_64.tar.gz | tar xz
 
 # OS X
-curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.94/aws-secretsmanager-env_1.1.94_osx_x86_64.tar.gz | tar xz
+curl -L https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.95/aws-secretsmanager-env_1.1.95_osx_x86_64.tar.gz | tar xz
 
 # Windows
-curl -LO https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.94/aws-secretsmanager-env_1.1.94_windows_x86_64.zip
-unzip aws-secretsmanager-env_1.1.94_windows_x86_64.zip
+curl -LO https://github.com/keilerkonzept/aws-secretsmanager-env/releases/download/1.1.95/aws-secretsmanager-env_1.1.95_windows_x86_64.zip
+unzip aws-secretsmanager-env_1.1.95_windows_x86_64.zip
 ```
 
 ## Use it
@@ -54,6 +54,8 @@ Usage of aws-secretsmanager-env:
     	a key/value pair ENV_VAR=SECRET_ARN#JSON_KEY (may be specified repeatedly)
   -secret-string ENV_VAR=SECRET_ARN
     	a key/value pair ENV_VAR=SECRET_ARN (may be specified repeatedly)
+  -version
+    	print version and exit
 ```
 
 ### Examples
