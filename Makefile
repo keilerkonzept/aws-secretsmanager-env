@@ -34,46 +34,46 @@ release/$(APP)_$(VERSION)_osx_x86_64.tar.gz: binaries/osx_x86_64/$(APP)
 	tar cfz release/$(APP)_$(VERSION)_osx_x86_64.tar.gz -C binaries/osx_x86_64 $(APP)
 
 binaries/osx_x86_64/$(APP): $(GOFILES)
-	GOOS=darwin GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/osx_x86_64/$(APP) .
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/osx_x86_64/$(APP) .
 
 release/$(APP)_$(VERSION)_windows_x86_64.zip: binaries/windows_x86_64/$(APP).exe
 	mkdir -p release
 	cd ./binaries/windows_x86_64 && zip -r -D ../../release/$(APP)_$(VERSION)_windows_x86_64.zip $(APP).exe
 
 binaries/windows_x86_64/$(APP).exe: $(GOFILES)
-	GOOS=windows GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/windows_x86_64/$(APP).exe .
+	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/windows_x86_64/$(APP).exe .
 
 release/$(APP)_$(VERSION)_linux_x86_64.tar.gz: binaries/linux_x86_64/$(APP)
 	mkdir -p release
 	tar cfz release/$(APP)_$(VERSION)_linux_x86_64.tar.gz -C binaries/linux_x86_64 $(APP)
 
 binaries/linux_x86_64/$(APP): $(GOFILES)
-	GOOS=linux GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_x86_64/$(APP) .
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_x86_64/$(APP) .
 
 release/$(APP)_$(VERSION)_osx_x86_32.tar.gz: binaries/osx_x86_32/$(APP)
 	mkdir -p release
 	tar cfz release/$(APP)_$(VERSION)_osx_x86_32.tar.gz -C binaries/osx_x86_32 $(APP)
 
 binaries/osx_x86_32/$(APP): $(GOFILES)
-	GOOS=darwin GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/osx_x86_32/$(APP) .
+	CGO_ENABLED=0 GOOS=darwin GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/osx_x86_32/$(APP) .
 
 release/$(APP)_$(VERSION)_windows_x86_32.zip: binaries/windows_x86_32/$(APP).exe
 	mkdir -p release
 	cd ./binaries/windows_x86_32 && zip -r -D ../../release/$(APP)_$(VERSION)_windows_x86_32.zip $(APP).exe
 
 binaries/windows_x86_32/$(APP).exe: $(GOFILES)
-	GOOS=windows GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/windows_x86_32/$(APP).exe .
+	CGO_ENABLED=0 GOOS=windows GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/windows_x86_32/$(APP).exe .
 
 release/$(APP)_$(VERSION)_linux_x86_32.tar.gz: binaries/linux_x86_32/$(APP)
 	mkdir -p release
 	tar cfz release/$(APP)_$(VERSION)_linux_x86_32.tar.gz -C binaries/linux_x86_32 $(APP)
 
 binaries/linux_x86_32/$(APP): $(GOFILES)
-	GOOS=linux GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_x86_32/$(APP) .
+	CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_x86_32/$(APP) .
 
 release/$(APP)_$(VERSION)_linux_arm64.tar.gz: binaries/linux_arm64/$(APP)
 	mkdir -p release
 	tar cfz release/$(APP)_$(VERSION)_linux_arm64.tar.gz -C binaries/linux_arm64 $(APP)
 
 binaries/linux_arm64/$(APP): $(GOFILES)
-	GOOS=linux GOARCH=arm64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_arm64/$(APP) .
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -ldflags "-X main.version=$(VERSION) -X main.app=$(APP)" -o binaries/linux_arm64/$(APP) .
