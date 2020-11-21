@@ -21,8 +21,11 @@ var config struct {
 	SecretJSONKeyStrings map[string]secretJSONKey
 	SecretJSONKeys       map[string]secretJSONKey
 	PrintEnvAndExit      bool
+	PrintVersionAndExit  bool
 	Profile              string
 }
+
+var version string
 
 type secretJSONKey struct {
 	SecretID string
@@ -41,6 +44,7 @@ func init() {
 	flag.Var(&config.SecretJSONKeyStringAssignments, "secret-json-key-string", "a key/value pair `ENV_VAR=SECRET_ARN#JSON_KEY` (may be specified repeatedly)")
 	flag.Var(&config.SecretJSONKeyAssignments, "secret-json-key", "a key/value pair `ENV_VAR=SECRET_ARN#JSON_KEY` (may be specified repeatedly)")
 	flag.StringVar(&config.Profile, "profile", "", "override the current AWS_PROFILE setting")
+	flag.BoolVar(&config.PrintVersionAndExit, "version", config.PrintVersionAndExit, "print version and exit")
 	flag.Parse()
 
 	config.PrintEnvAndExit = flag.NArg() > 0
@@ -71,6 +75,11 @@ func init() {
 }
 
 func main() {
+	if config.PrintVersionAndExit {
+		fmt.Println(version)
+		return
+	}
+
 	awsSession, err := awsSession()
 	if err != nil {
 		log.Fatalf("aws: %v", err)
