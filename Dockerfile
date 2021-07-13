@@ -1,5 +1,5 @@
 FROM golang:1.13.11-alpine3.10 AS build
-RUN apk add --no-cache make
+RUN apk add --no-cache make jq
 WORKDIR /go/src/github.com/keilerkonzept/aws-secretsmanager-env/
 COPY . .
 ENV CGO_ENABLED=0
